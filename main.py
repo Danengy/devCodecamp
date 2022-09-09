@@ -1,5 +1,7 @@
 
+from dataclasses import field
 import random
+from traceback import print_tb
 
 # (5 points): As a developer, I want to make at least three commits with descriptive messages.
 
@@ -30,7 +32,7 @@ restaurant_list = ["Stubborn Seed", "La Mar", "Ariete", "Makoto"]
 
 transportation_list = ["Car", "Plane", "Train"] 
 
-entertainment_list_ = ["Seattle Great wheel", "Kunota Garden", "Chihuly Garden and Glass", "the Space Needle"]
+entertainment_list = ["Seattle Great wheel", "Kunota Garden", "Chihuly Garden and Glass", "the Space Needle"]
 
 
 def random_destination_generator():
@@ -75,14 +77,14 @@ restaurant = random_restaurant_generator()
 def random_entertainment_generator():
     user_validation = False 
     while user_validation == False:
-        random_chosen_entertainment = random.choice(entertainment_list_)
+        random_chosen_entertainment = random.choice(entertainment_list)
         user_input = input(f"The for of entertainment randomly chosen is: {random_chosen_entertainment}. Is this a place that you would like to visit? Enter y/n:")
         if user_input == "y":
-            print("Awesome! That is a great choic of entertainment. Let's move on the next part.")
+            print("Awesome! That is a great choice of entertainment. Let's move on the next part.")
             return random_chosen_entertainment
             user_validation = True
         elif user_input == "n": 
-            print("Sorry you didn't like this place, here's another one.")
+            print("Sorry you didn't like this choice of entertainment, here's another one.")
 entertainment = random_entertainment_generator()
 
 def daytrip_display():
@@ -91,5 +93,13 @@ def daytrip_display():
     print("Transportation: " + transportation) 
     print("Restaurant: " + restaurant)
     print("Entertainment: " + entertainment)
+
 daytrip_display()
+
+user_choice = input("Does this trip look good to you? Enter y/n: ")
+if user_choice == "y":
+    print("Have a fantastic trip. ")
+elif user_choice == "n":
+    print("Sorry you didn't like your trip, run the program and try again. ")
+
 
